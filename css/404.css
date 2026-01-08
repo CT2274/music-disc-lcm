@@ -1,0 +1,53 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  /* ensures body always fills screen */
+}
+
+main {
+  flex: 1;  /* this grows to fill leftover space */
+}
+
+.image-container-2 {
+  margin-top: 5vh;
+}
+
+.image-container-2 img {
+    display: block;
+    margin: 0 auto; 
+    max-width: 20vw;
+}
+
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+  text-shadow: 0px 0px 15px var(--accent);
+}
+
+.message-title {
+  color: var(--white);
+  font-size: clamp(60px, 9vw, 80px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  max-width: 100%;
+  width: 100%;
+  text-transform: uppercase;
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+
+.message-subtitle {
+  font-size: clamp(40px, 9vw, 60px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.countdown {
+  font-size: clamp(20px, 3vw, 30px);
+}

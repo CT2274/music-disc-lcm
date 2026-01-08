@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Title</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+
+  <meta property="og:title" content="Title" />
+  <meta property="og:description" content="Link preview text" />
+  <meta property="og:image" content="https://website.com/images/logo.png" />
+  <meta property="og:url" content="https://website.com/" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=VT323&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <link href="font link" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/index.css">
+
+  <script src="https://unpkg.com/@studio-freight/lenis" defer></script>
+  <script src="/js/lenis-import.js" defer></script>
+
+  <script src="/js/math.js" defer></script>
+
+  
+</head>
+<body>
+<main>
+
+<div class="title-wrapper">
+  <div class="title">Minecraft Music Disc LCM Calculator</div>
+</div>
+
+<div class="text">
+  How to use: 
+  <br>
+  1. Select music disc from dropdown
+  <br>
+  2. Input the off duration of the jukebox (how long it takes for the hoppers/droppers to reset it)
+  <br>
+  3. Set the offset. This is how long the jukebox takes to start playing once the player gives the first input. 
+  <br>
+
+  Results: 
+  <br>
+  LCM: The Least Common Multiple between all periods. Longest total cycle where every clock has returned to its starting offset (not necessarily silent)
+  First Silence: How many ticks until all jukeboxes stop playing simultaneously. Smallest tick value where every clock is in its “off” window at the same time.
+</div>
+<br>
+
+
+
+
+<div id="selectors">
+  <!-- Clock 1 -->
+  <div class="clock">
+    <label>Choose a disc:</label>
+    <select class="disc-select">
+      <option value="">--Select--</option>
+      <option value="1441">11</option>
+      <option value="1481">Creator MB</option>
+      <option value="1941">Mellohi</option>
+      <option value="2701">Lava Chicken</option>
+      <option value="3001">Pigstep</option>
+      <option value="3021">Stal</option>
+      <option value="3501">Far</option>
+      <option value="3521">Tears</option>
+      <option value="3541">Creator</option>
+      <option value="3581">13</option>
+      <option value="3581">5</option>
+      <option value="3721">Cat</option>
+      <option value="3721">Chirp</option>
+      <option value="3781">Strad</option>
+      <option value="3921">Otherside</option>
+      <option value="3961">Mall</option>
+      <option value="4381">Relic</option>
+      <option value="4781">Wait</option>
+      <option value="5041">Ward</option>
+      <option value="6001">Precipice</option>
+      <option value="6921">Blocks</option>
+    </select> 
+
+    <p>On Duration: <span class="on-display">--</span></p> <!-- How long the jukebox plays for -->
+
+    <label>Off Duration:</label> <!-- How long the jukebox is silent (eject + hopper + dropper + reinsert delay) -->
+    <input type="number" class="off-duration" min="0">   
+    
+    <label>Offset:</label> <!-- First time it starts playing -->
+    <input type="number" class="offset" min="0">   
+
+    <p>Period: <span class="period-display">--</span></p>
+  </div>
+  <br>
+
+  <!-- Clock 2 -->
+  <div class="clock">
+    <label>Choose a disc:</label>
+    <select class="disc-select">
+      <option value="">--Select--</option>
+      <option value="1441">11</option>
+      <option value="1481">Creator MB</option>
+      <option value="1941">Mellohi</option>
+      <option value="2701">Lava Chicken</option>
+      <option value="3001">Pigstep</option>
+      <option value="3021">Stal</option>
+      <option value="3501">Far</option>
+      <option value="3521">Tears</option>
+      <option value="3541">Creator</option>
+      <option value="3581">13</option>
+      <option value="3581">5</option>
+      <option value="3721">Cat</option>
+      <option value="3721">Chirp</option>
+      <option value="3781">Strad</option>
+      <option value="3921">Otherside</option>
+      <option value="3961">Mall</option>
+      <option value="4381">Relic</option>
+      <option value="4781">Wait</option>
+      <option value="5041">Ward</option>
+      <option value="6001">Precipice</option>
+      <option value="6921">Blocks</option>
+    </select> 
+
+    <p>On Duration: <span class="on-display">--</span></p> <!-- How long the jukebox plays for -->
+
+    <label>Off Duration:</label> <!-- How long the jukebox is silent (eject + hopper + dropper + reinsert delay) -->
+    <input type="number" class="off-duration" min="0">   
+    
+    <label>Offset:</label> <!-- First time it starts playing -->
+    <input type="number" class="offset" min="0">   
+
+    <p>Period: <span class="period-display">--</span></p>
+  </div>
+  <br>
+
+  <!-- Clock 3 -->
+  <div class="clock">
+    <label>Choose a disc:</label>
+    <select class="disc-select">
+      <option value="">--Select--</option>
+      <option value="1441">11</option>
+      <option value="1481">Creator MB</option>
+      <option value="1941">Mellohi</option>
+      <option value="2701">Lava Chicken</option>
+      <option value="3001">Pigstep</option>
+      <option value="3021">Stal</option>
+      <option value="3501">Far</option>
+      <option value="3521">Tears</option>
+      <option value="3541">Creator</option>
+      <option value="3581">13</option>
+      <option value="3581">5</option>
+      <option value="3721">Cat</option>
+      <option value="3721">Chirp</option>
+      <option value="3781">Strad</option>
+      <option value="3921">Otherside</option>
+      <option value="3961">Mall</option>
+      <option value="4381">Relic</option>
+      <option value="4781">Wait</option>
+      <option value="5041">Ward</option>
+      <option value="6001">Precipice</option>
+      <option value="6921">Blocks</option>
+    </select> 
+
+    <p>On Duration: <span class="on-display">--</span></p> <!-- How long the jukebox plays for -->
+
+    <label>Off Duration:</label> <!-- How long the jukebox is silent (eject + hopper + dropper + reinsert delay) -->
+    <input type="number" class="off-duration" min="0">   
+    
+    <label>Offset:</label> <!-- First time it starts playing -->
+    <input type="number" class="offset" min="0">   
+
+    <p>Period: <span class="period-display">--</span></p>
+  </div>
+  <br>
+
+  <!-- Clock 4 -->
+  <div class="clock">
+    <label>Choose a disc:</label>
+    <select class="disc-select">
+      <option value="">--Select--</option>
+      <option value="1441">11</option>
+      <option value="1481">Creator MB</option>
+      <option value="1941">Mellohi</option>
+      <option value="2701">Lava Chicken</option>
+      <option value="3001">Pigstep</option>
+      <option value="3021">Stal</option>
+      <option value="3501">Far</option>
+      <option value="3521">Tears</option>
+      <option value="3541">Creator</option>
+      <option value="3581">13</option>
+      <option value="3581">5</option>
+      <option value="3721">Cat</option>
+      <option value="3721">Chirp</option>
+      <option value="3781">Strad</option>
+      <option value="3921">Otherside</option>
+      <option value="3961">Mall</option>
+      <option value="4381">Relic</option>
+      <option value="4781">Wait</option>
+      <option value="5041">Ward</option>
+      <option value="6001">Precipice</option>
+      <option value="6921">Blocks</option>
+    </select> 
+
+    <p>On Duration: <span class="on-display">--</span></p> <!-- How long the jukebox plays for -->
+
+    <label>Off Duration:</label> <!-- How long the jukebox is silent (eject + hopper + dropper + reinsert delay) -->
+    <input type="number" class="off-duration" min="0">   
+    
+    <label>Offset:</label> <!-- First time it starts playing -->
+    <input type="number" class="offset" min="0">   
+
+    <p>Period: <span class="period-display">--</span></p>
+  </div>
+  <br>
+
+  <!-- Clock 5 -->
+  <div class="clock">
+    <label>Choose a disc:</label>
+    <select class="disc-select">
+      <option value="">--Select--</option>
+      <option value="1441">11</option>
+      <option value="1481">Creator MB</option>
+      <option value="1941">Mellohi</option>
+      <option value="2701">Lava Chicken</option>
+      <option value="3001">Pigstep</option>
+      <option value="3021">Stal</option>
+      <option value="3501">Far</option>
+      <option value="3521">Tears</option>
+      <option value="3541">Creator</option>
+      <option value="3581">13</option>
+      <option value="3581">5</option>
+      <option value="3721">Cat</option>
+      <option value="3721">Chirp</option>
+      <option value="3781">Strad</option>
+      <option value="3921">Otherside</option>
+      <option value="3961">Mall</option>
+      <option value="4381">Relic</option>
+      <option value="4781">Wait</option>
+      <option value="5041">Ward</option>
+      <option value="6001">Precipice</option>
+      <option value="6921">Blocks</option>
+    </select> 
+
+    <p>On Duration: <span class="on-display">--</span></p> <!-- How long the jukebox plays for -->
+
+    <label>Off Duration:</label> <!-- How long the jukebox is silent (eject + hopper + dropper + reinsert delay) -->
+    <input type="number" class="off-duration" min="0">   
+    
+    <label>Offset:</label> <!-- First time it starts playing -->
+    <input type="number" class="offset" min="0">   
+
+    <p>Period: <span class="period-display">--</span></p>
+  </div>
+  <br>
+
+  <!-- Clock 6 -->
+  <div class="clock">
+    <label>Choose a disc:</label>
+    <select class="disc-select">
+      <option value="">--Select--</option>
+      <option value="1441">11</option>
+      <option value="1481">Creator MB</option>
+      <option value="1941">Mellohi</option>
+      <option value="2701">Lava Chicken</option>
+      <option value="3001">Pigstep</option>
+      <option value="3021">Stal</option>
+      <option value="3501">Far</option>
+      <option value="3521">Tears</option>
+      <option value="3541">Creator</option>
+      <option value="3581">13</option>
+      <option value="3581">5</option>
+      <option value="3721">Cat</option>
+      <option value="3721">Chirp</option>
+      <option value="3781">Strad</option>
+      <option value="3921">Otherside</option>
+      <option value="3961">Mall</option>
+      <option value="4381">Relic</option>
+      <option value="4781">Wait</option>
+      <option value="5041">Ward</option>
+      <option value="6001">Precipice</option>
+      <option value="6921">Blocks</option>
+    </select> 
+
+    <p>On Duration: <span class="on-display">--</span></p> <!-- How long the jukebox plays for -->
+
+    <label>Off Duration:</label> <!-- How long the jukebox is silent (eject + hopper + dropper + reinsert delay) -->
+    <input type="number" class="off-duration" min="0">   
+    
+    <label>Offset:</label> <!-- First time it starts playing -->
+    <input type="number" class="offset" min="0">   
+
+    <p>Period: <span class="period-display">--</span></p>
+  </div>
+  <br>
+
+  <!-- Clock 7 -->
+  <div class="clock">
+    <label>Choose a disc:</label>
+    <select class="disc-select">
+      <option value="">--Select--</option>
+      <option value="1441">11</option>
+      <option value="1481">Creator MB</option>
+      <option value="1941">Mellohi</option>
+      <option value="2701">Lava Chicken</option>
+      <option value="3001">Pigstep</option>
+      <option value="3021">Stal</option>
+      <option value="3501">Far</option>
+      <option value="3521">Tears</option>
+      <option value="3541">Creator</option>
+      <option value="3581">13</option>
+      <option value="3581">5</option>
+      <option value="3721">Cat</option>
+      <option value="3721">Chirp</option>
+      <option value="3781">Strad</option>
+      <option value="3921">Otherside</option>
+      <option value="3961">Mall</option>
+      <option value="4381">Relic</option>
+      <option value="4781">Wait</option>
+      <option value="5041">Ward</option>
+      <option value="6001">Precipice</option>
+      <option value="6921">Blocks</option>
+    </select> 
+
+    <p>On Duration: <span class="on-display">--</span></p> <!-- How long the jukebox plays for -->
+
+    <label>Off Duration:</label> <!-- How long the jukebox is silent (eject + hopper + dropper + reinsert delay) -->
+    <input type="number" class="off-duration" min="0">   
+    
+    <label>Offset:</label> <!-- First time it starts playing -->
+    <input type="number" class="offset" min="0">   
+
+    <p>Period: <span class="period-display">--</span></p>
+  </div>
+  <br>
+
+  <!-- Clock 8 -->
+  <div class="clock">
+    <label>Choose a disc:</label>
+    <select class="disc-select">
+      <option value="">--Select--</option>
+      <option value="1441">11</option>
+      <option value="1481">Creator MB</option>
+      <option value="1941">Mellohi</option>
+      <option value="2701">Lava Chicken</option>
+      <option value="3001">Pigstep</option>
+      <option value="3021">Stal</option>
+      <option value="3501">Far</option>
+      <option value="3521">Tears</option>
+      <option value="3541">Creator</option>
+      <option value="3581">13</option>
+      <option value="3581">5</option>
+      <option value="3721">Cat</option>
+      <option value="3721">Chirp</option>
+      <option value="3781">Strad</option>
+      <option value="3921">Otherside</option>
+      <option value="3961">Mall</option>
+      <option value="4381">Relic</option>
+      <option value="4781">Wait</option>
+      <option value="5041">Ward</option>
+      <option value="6001">Precipice</option>
+      <option value="6921">Blocks</option>
+    </select> 
+
+    <p>On Duration: <span class="on-display">--</span></p> <!-- How long the jukebox plays for -->
+
+    <label>Off Duration:</label> <!-- How long the jukebox is silent (eject + hopper + dropper + reinsert delay) -->
+    <input type="number" class="off-duration" min="0">   
+    
+    <label>Offset:</label> <!-- First time it starts playing -->
+    <input type="number" class="offset" min="0">   
+
+    <p>Period: <span class="period-display">--</span></p>
+  </div>
+
+  <br>
+  <p>LCM: <span id="lcm-result">--</span></p>
+  <p>First Silence: <span id="silent-result">--</span></p>
+
+<!-- <img src="/images/disc_times.png"> -->
+
+</main>
+
+</body>
+</html>
